@@ -134,3 +134,12 @@ header img {
     cursor: pointer;
     
 }
+
+.main-content .Opps{
+   position: absolute;
+   justify-items: center;
+
+   font-size: larger;
+    color: red;
+    
+}

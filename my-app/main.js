@@ -33,13 +33,18 @@ submit.addEventListener("click", async (event) => {
   }
 });
 
-
-const url = new URL(window.location.href);
-
-
-const data = url.pathname.split("/").pop();
-
-
-fetch(`http://localhost:8080/${data}`)
-  .then(res => res.json())
-  .then(console.log);
+const path = location.pathname.slice(1); // "c8bee1d"
+if (path) {
+  fetch(`/api/${path}`)
+    .then(res => res.json())
+    .then(data => {
+      console.log('Backend data:', data); // Should log the object with "url"
+      const redirect = data.url || data.link;
+      if (redirect) {
+        window.location.replace(redirect);
+      } else {
+        navigate('/error');
+      }
+    })
+    .catch(err => console.error('Fetch failed:', err));
+}
