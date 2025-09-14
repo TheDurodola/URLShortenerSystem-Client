@@ -21,11 +21,15 @@ submit.addEventListener("click", async (event) => {
 
     
     if (!response.ok) {
+      const data = await response.json();
+      alert(data.message)
       throw new Error("Failed to send text");
     }
 
     const data = await response.json();
-    console.log("Response from API:", data.shortUrl);
+    const fullShortUrl = `${window.location.origin}/${data.shortUrl}`;
+    console.log("Share this short URL:", fullShortUrl);
+    alert(`Short URL: ${fullShortUrl}`);
     input.value = "";
     
   } catch (error) {
@@ -43,7 +47,7 @@ if (path) {
       if (redirect) {
         window.location.replace(redirect);
       } else {
-        navigate('/error');
+        window.location.href = "/error.html";
       }
     })
     .catch(err => console.error('Fetch failed:', err));
