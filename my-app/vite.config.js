@@ -11,7 +11,7 @@ export default defineConfig({
     },
    devServer: {
   historyApiFallback: {
-    index: 'error.html', 
+    index: '/error.html', 
     disableDotRule: true, 
   },
 }
