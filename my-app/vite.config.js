@@ -11,8 +11,8 @@ export default defineConfig({
     },
    devServer: {
   historyApiFallback: {
-    index: 'error.html', // default file to serve
-    disableDotRule: true, // serve index.html even if URL contains a dot
+    index: 'error.html', 
+    disableDotRule: true, 
   },
 }
   },
