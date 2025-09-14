@@ -33,12 +33,12 @@ submit.addEventListener("click", async (event) => {
   }
 });
 
-const path = location.pathname.slice(1); // "c8bee1d"
+const path = location.pathname.slice(1);
 if (path) {
   fetch(`/api/${path}`)
     .then(res => res.json())
     .then(data => {
-      console.log('Backend data:', data); // Should log the object with "url"
+      console.log('Backend data:', data); 
       const redirect = data.url || data.link;
       if (redirect) {
         window.location.replace(redirect);
